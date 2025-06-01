@@ -1,0 +1,21 @@
+{
+  "name": "alder-meadow",
+  "version": "1.0.0",
+  "description": "AlderMeadow \u2014 Harbor slip bookings.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "node esbuild.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "esbuild": "0.14.54"
+  }
+}
