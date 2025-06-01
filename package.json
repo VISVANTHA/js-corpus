@@ -1,0 +1,22 @@
+{
+  "name": "kestrel-mill",
+  "version": "1.0.0",
+  "description": "KestrelMill \u2014 Community garden plots.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "rspack build --config rspack.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "@rspack/core": "0.5.9",
+    "@rspack/cli": "0.5.9"
+  }
+}
