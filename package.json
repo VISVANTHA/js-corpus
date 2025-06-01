@@ -1,0 +1,23 @@
+{
+  "name": "canyon-vault",
+  "version": "1.0.0",
+  "description": "CanyonVault \u2014 Workshop tool lending.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "npm@6.14.18",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
