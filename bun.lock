@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "bramble-quarry",
+      "devDependencies": {
+        "mocha": "8.4.0",
+        "nyc": "15.1.0",
+        "webpack": "4.47.0",
+        "webpack-cli": "3.3.12"
+      }
+    }
+  }
+}

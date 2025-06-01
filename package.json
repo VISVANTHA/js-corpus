@@ -1,0 +1,22 @@
+{
+  "name": "bramble-quarry",
+  "version": "1.0.0",
+  "description": "BrambleQuarry \u2014 Trail permit desks.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "webpack": "4.47.0",
+    "webpack-cli": "3.3.12"
+  }
+}
