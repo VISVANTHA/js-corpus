@@ -1,0 +1,23 @@
+{
+  "name": "haven-vault",
+  "version": "1.0.0",
+  "description": "HavenVault \u2014 Workshop tool lending.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
