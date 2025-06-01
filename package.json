@@ -1,0 +1,29 @@
+{
+  "name": "willow-meadow",
+  "version": "1.0.0",
+  "description": "WillowMeadow \u2014 Harbor slip bookings.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@3.6.4",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint src tests eslint-rules --ignore-pattern dist || eslint . --ignore-pattern dist --ignore-pattern node_modules",
+    "dup": "jscpd src packages"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "jscpd": "3.5.10",
+    "eslint": "8.57.1",
+    "eslint-plugin-security": "1.7.1",
+    "eslint-plugin-sonarjs": "0.25.1",
+    "eslint-scope": "7.2.2",
+    "webpack": "5.97.1",
+    "webpack-cli": "5.1.4"
+  }
+}
