@@ -1,0 +1,25 @@
+{
+  "name": "canyon-inlay",
+  "version": "1.0.0",
+  "description": "CanyonInlay \u2014 Fleet maintenance logs.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "parcel build packages/api/src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "parcel": "2.6.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "source": "packages/api/src/index.js"
+}
