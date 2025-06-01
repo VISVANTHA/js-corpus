@@ -1,0 +1,20 @@
+{
+  "name": "lumen-meadow",
+  "version": "1.0.0",
+  "description": "LumenMeadow \u2014 Harbor slip bookings.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  }
+}
