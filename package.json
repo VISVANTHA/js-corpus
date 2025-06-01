@@ -1,0 +1,23 @@
+{
+  "name": "canyon-terrace",
+  "version": "1.0.0",
+  "description": "CanyonTerrace \u2014 Studio kiln schedules.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
