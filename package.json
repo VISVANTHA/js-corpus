@@ -1,0 +1,21 @@
+{
+  "name": "alder-brook",
+  "version": "1.0.0",
+  "description": "AlderBrook \u2014 Volunteer shift boards.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "pnpm@6.35.1",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "node esbuild.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "esbuild": "0.14.54"
+  }
+}
