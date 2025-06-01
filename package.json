@@ -1,0 +1,28 @@
+{
+  "name": "glacier-compass",
+  "version": "1.0.0",
+  "description": "GlacierCompass \u2014 Co-op produce shares.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "parcel build packages/api/src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-sonarjs": "0.25.1",
+    "parcel": "2.12.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "source": "packages/api/src/index.js"
+}
