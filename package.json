@@ -1,0 +1,22 @@
+{
+  "name": "bramble-meadow",
+  "version": "1.0.0",
+  "description": "BrambleMeadow \u2014 Harbor slip bookings.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "webpack": "4.47.0",
+    "webpack-cli": "3.3.12"
+  }
+}
