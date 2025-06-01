@@ -1,0 +1,25 @@
+{
+  "name": "lumen-marina",
+  "version": "1.0.0",
+  "description": "LumenMarina \u2014 Maker-space access.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "swc src -d dist",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "@swc/core": "1.3.107",
+    "@swc/cli": "0.1.63"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
