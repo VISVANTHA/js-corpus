@@ -1,0 +1,21 @@
+{
+  "name": "ember-atlas",
+  "version": "1.0.0",
+  "description": "EmberAtlas \u2014 Library annex holds.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "vite build --config vite.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "vite": "3.2.11"
+  }
+}
