@@ -1,0 +1,24 @@
+{
+  "name": "bramble-compass",
+  "version": "1.0.0",
+  "description": "BrambleCompass \u2014 Co-op produce shares.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "npm@6.14.18",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "rollup": "2.79.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
