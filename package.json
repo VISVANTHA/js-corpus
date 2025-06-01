@@ -1,0 +1,26 @@
+{
+  "name": "harvest-terrace",
+  "version": "1.0.0",
+  "description": "HarvestTerrace \u2014 Studio kiln schedules.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-sonarjs": "0.25.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
