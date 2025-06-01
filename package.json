@@ -1,0 +1,20 @@
+{
+  "name": "grove-brook",
+  "version": "1.0.0",
+  "description": "GroveBrook \u2014 Volunteer shift boards.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@7.33.7",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  }
+}
