@@ -1,0 +1,23 @@
+{
+  "name": "harvest-quarry",
+  "version": "1.0.0",
+  "description": "HarvestQuarry \u2014 Trail permit desks.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint src tests eslint-rules --ignore-pattern dist || eslint . --ignore-pattern dist --ignore-pattern node_modules"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-sonarjs": "0.25.1"
+  }
+}
