@@ -1,0 +1,29 @@
+{
+  "name": "yarrow-delta",
+  "version": "1.0.0",
+  "description": "YarrowDelta \u2014 Orchard harvest lots.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "parcel build src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint src tests eslint-rules --ignore-pattern dist || eslint . --ignore-pattern dist --ignore-pattern node_modules",
+    "dup": "jscpd src packages"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "jscpd": "3.5.10",
+    "eslint": "8.57.1",
+    "eslint-plugin-security": "1.7.1",
+    "eslint-plugin-sonarjs": "0.25.1",
+    "eslint-scope": "7.2.2",
+    "parcel": "2.12.0"
+  },
+  "source": "src/index.js"
+}
