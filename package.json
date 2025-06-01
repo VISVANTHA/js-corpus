@@ -1,0 +1,32 @@
+{
+  "name": "sage-vault",
+  "version": "1.0.0",
+  "description": "SageVault \u2014 Workshop tool lending.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": "21.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
+    "dup": "jscpd src packages",
+    "mutate": "stryker run"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "jscpd": "3.5.10",
+    "eslint": "8.57.1",
+    "eslint-plugin-security": "1.7.1",
+    "@stryker-mutator/core": "8.7.1",
+    "@stryker-mutator/mocha-runner": "8.7.1",
+    "webpack": "5.97.1",
+    "webpack-cli": "5.1.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
