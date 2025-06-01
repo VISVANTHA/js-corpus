@@ -1,0 +1,25 @@
+{
+  "name": "kestrel-terrace",
+  "version": "1.0.0",
+  "description": "KestrelTerrace \u2014 Studio kiln schedules.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "rspack build --config rspack.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "@rspack/core": "0.5.9",
+    "@rspack/cli": "0.5.9"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
