@@ -1,0 +1,22 @@
+{
+  "name": "canyon-hearth",
+  "version": "1.0.0",
+  "description": "CanyonHearth \u2014 Archive box indexes.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "parcel build src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "parcel": "2.6.2"
+  },
+  "source": "src/index.js"
+}
