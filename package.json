@@ -1,0 +1,21 @@
+{
+  "name": "alder-mill",
+  "version": "1.0.0",
+  "description": "AlderMill \u2014 Community garden plots.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "npm@6.14.18",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "node esbuild.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "esbuild": "0.14.54"
+  }
+}
