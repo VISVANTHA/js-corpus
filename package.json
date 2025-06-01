@@ -1,0 +1,22 @@
+{
+  "name": "kestrel-atlas",
+  "version": "1.0.0",
+  "description": "KestrelAtlas \u2014 Library annex holds.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "parcel build src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "parcel": "2.12.0"
+  },
+  "source": "src/index.js"
+}
