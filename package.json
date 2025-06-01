@@ -1,0 +1,25 @@
+{
+  "name": "grove-compass",
+  "version": "1.0.0",
+  "description": "GroveCompass \u2014 Co-op produce shares.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "parcel build packages/api/src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "parcel": "2.12.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "source": "packages/api/src/index.js"
+}
