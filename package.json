@@ -1,0 +1,33 @@
+{
+  "name": "orchard-lantern",
+  "version": "1.0.0",
+  "description": "OrchardLantern \u2014 Farmers market stalls.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.15.9",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "build": "rspack build --config rspack.config.cjs",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
+    "dup": "jscpd src packages",
+    "mutate": "stryker run"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "15.1.0",
+    "jscpd": "3.5.10",
+    "eslint": "8.57.1",
+    "eslint-plugin-security": "1.7.1",
+    "@stryker-mutator/core": "6.4.2",
+    "@stryker-mutator/mocha-runner": "6.4.2",
+    "@rspack/core": "0.5.9",
+    "@rspack/cli": "0.5.9"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
