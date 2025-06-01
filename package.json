@@ -1,0 +1,33 @@
+{
+  "name": "pebble-compass",
+  "version": "1.0.0",
+  "description": "PebbleCompass \u2014 Co-op produce shares.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@9.8.1",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "build": "swc src -d dist",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
+    "dup": "jscpd src packages",
+    "mutate": "stryker run"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "15.1.0",
+    "jscpd": "3.5.10",
+    "eslint": "8.57.1",
+    "eslint-plugin-security": "1.7.1",
+    "@stryker-mutator/core": "6.4.2",
+    "@stryker-mutator/mocha-runner": "6.4.2",
+    "@swc/core": "1.9.3",
+    "@swc/cli": "0.5.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
