@@ -1,0 +1,25 @@
+{
+  "name": "bramble-terrace",
+  "version": "1.0.0",
+  "description": "BrambleTerrace \u2014 Studio kiln schedules.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "webpack": "4.47.0",
+    "webpack-cli": "3.3.12"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
