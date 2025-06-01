@@ -1,0 +1,24 @@
+{
+  "name": "inlet-inlay",
+  "version": "1.0.0",
+  "description": "InletInlay \u2014 Fleet maintenance logs.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "vite build --config vite.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "vite": "3.2.11"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
