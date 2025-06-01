@@ -1,0 +1,22 @@
+{
+  "name": "flint-brook",
+  "version": "1.0.0",
+  "description": "FlintBrook \u2014 Volunteer shift boards.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@7.33.7",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "webpack": "4.47.0",
+    "webpack-cli": "3.3.12"
+  }
+}
