@@ -1,0 +1,22 @@
+{
+  "name": "canyon-kiln",
+  "version": "1.0.0",
+  "description": "CanyonKiln \u2014 River gauge readings.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "parcel build src/index.js --dist-dir dist --no-source-maps",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "parcel": "2.6.2"
+  },
+  "source": "src/index.js"
+}
