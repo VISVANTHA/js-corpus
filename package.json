@@ -1,0 +1,23 @@
+{
+  "name": "lumen-vault",
+  "version": "1.0.0",
+  "description": "LumenVault \u2014 Workshop tool lending.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@8.19.4",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "node scripts/copy-build.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
