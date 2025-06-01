@@ -1,0 +1,21 @@
+{
+  "name": "inlet-quarry",
+  "version": "1.0.0",
+  "description": "InletQuarry \u2014 Trail permit desks.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "node esbuild.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "esbuild": "0.14.54"
+  }
+}
