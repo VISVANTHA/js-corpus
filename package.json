@@ -1,0 +1,21 @@
+{
+  "name": "bramble-kiln",
+  "version": "1.0.0",
+  "description": "BrambleKiln \u2014 River gauge readings.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.cjs",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "rollup": "2.79.2"
+  }
+}
