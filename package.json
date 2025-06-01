@@ -1,0 +1,28 @@
+{
+  "name": "glacier-terrace",
+  "version": "1.0.0",
+  "description": "GlacierTerrace \u2014 Studio kiln schedules.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "rspack build --config rspack.config.cjs",
+    "test": "nyc mocha --recursive tests",
+    "lint": "eslint packages tests eslint-rules --ignore-pattern dist"
+  },
+  "devDependencies": {
+    "mocha": "10.2.0",
+    "nyc": "17.1.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-sonarjs": "0.25.1",
+    "@rspack/core": "0.5.9",
+    "@rspack/cli": "0.5.9"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
