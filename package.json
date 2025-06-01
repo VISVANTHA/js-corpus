@@ -1,0 +1,22 @@
+{
+  "name": "bramble-brook",
+  "version": "1.0.0",
+  "description": "BrambleBrook \u2014 Volunteer shift boards.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "pnpm@6.35.1",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs --mode production",
+    "test": "nyc mocha --recursive tests"
+  },
+  "devDependencies": {
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "webpack": "4.47.0",
+    "webpack-cli": "3.3.12"
+  }
+}
