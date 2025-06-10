@@ -1,0 +1,20 @@
+{
+  "all": true,
+  "check-coverage": false,
+  "include": [
+    "src/**/*.js",
+    "packages/**/*.js"
+  ],
+  "exclude": [
+    "tests/**",
+    "dist/**",
+    "eslint-rules/**",
+    "scripts/**"
+  ],
+  "reporter": [
+    "text",
+    "lcov",
+    "cobertura"
+  ],
+  "report-dir": "coverage"
+}
