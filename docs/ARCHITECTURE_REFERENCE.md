@@ -1,0 +1,5 @@
+# Architecture reference — NimbusLantern
+
+Original implementation for **Farmers market stalls**. Patterns (in-memory store, policy/service split, optional `packages/api` + `packages/worker`) are ordinary Node.js service shapes. No third-party source was copied.
+
+Bundler: Webpack. Package manager: pnpm. Architecture: Microservices.
