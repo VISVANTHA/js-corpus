@@ -1,0 +1,576 @@
+{
+  "id": "CE-N22-020",
+  "folder": "javascript-repo-n22-020",
+  "productName": "WillowSpire",
+  "packageName": "willow-spire",
+  "domain": "Field sample tracking",
+  "language": "JavaScript",
+  "node": 22,
+  "bundler": "Webpack",
+  "packageManager": "yarn (Berry)",
+  "architecture": "microservices",
+  "toolFamilies": [
+    "eslint",
+    "eslint-plugin-security",
+    "eslint-plugin-sonarjs",
+    "eslint-scope-nyc",
+    "jscpd",
+    "npm-audit",
+    "npm-ls",
+    "nyc",
+    "nyc-mocha"
+  ],
+  "uniqueMetrics": 78,
+  "metrics": [
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Maintainability Evaluation",
+      "metric": "Technical Debt Impact",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Testability Analysis",
+      "metric": "Unit Test Complexity",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Risk Detection",
+      "metric": "Defect Probability",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Refactoring Guidance",
+      "metric": "Modularization Opportunity",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Code Review Support",
+      "metric": "Reviewer Fatigue Factor",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Testing Effort Prioritization",
+      "metric": "QA Resource Allocation",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Readability / Maintainability",
+      "technique": "Cognitive Complexity",
+      "classification": "Code Understandability Analysis",
+      "metric": "Human Cognitive Load",
+      "tool": "eslint-plugin-sonarjs"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Defect Propagation Risk Detection",
+      "metric": "Multi-Point Failure Probability",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Refactoring Identification",
+      "metric": "Redundancy Localization",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Code Quality Assessment",
+      "metric": "Structural Cleanliness Score",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Test Maintenance Reduction",
+      "metric": "Test Suite Streamlining",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Refactoring Opportunity Detection",
+      "metric": "Abstraction Potential",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Risk-Based Testing Prioritization",
+      "metric": "Regression Focus Mapping",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Maintainability Testing",
+      "metric": "Synchronization Verification",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Rule Detection Test",
+      "metric": "Violation Density per KLOC",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Unused Variable Detection",
+      "metric": "Resource Waste Identification",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Naming Convention Validation",
+      "metric": "Semantic Consistency Score",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Code Style Rule Validation",
+      "metric": "Syntactic Uniformity Score",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Complexity Rule Detection",
+      "metric": "Structural Threshold Monitoring",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Rule Severity Classification",
+      "metric": "Impact Prioritization",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Multiple Violations Detection",
+      "metric": "Aggregated Risk Assessment",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "False Positive Prevention",
+      "metric": "Accuracy Tuning",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Custom Rule Validation",
+      "metric": "Project-Specific Enforcement",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Configuration File Handling",
+      "metric": "Environment Standardization",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "CI/CD Integration Validation",
+      "metric": "Automated Gatekeeping",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Static Code Analysis",
+      "technique": "Lint / Rule Violations",
+      "classification": "Violation Reporting Validation",
+      "metric": "Quality Audit Trail",
+      "tool": "eslint"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Secure Coding Validation",
+      "metric": "Best Practice Compliance",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Input Validation Testing",
+      "metric": "Entry Point Sanitization",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Data Flow Security Analysis",
+      "metric": "Sensitive Information Tracking",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Authentication & Authorization Weakness Detection",
+      "metric": "Access Control Verification",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Dependency & Library Vulnerability Detection",
+      "metric": "Supply Chain Security",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Compliance & Security Standard Validation",
+      "metric": "Regulatory Alignment",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Security Vulnerability Detection",
+      "metric": "Exploit Surface Identification",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Transitive Dependency Analysis",
+      "metric": "Hidden Relationship Mapping",
+      "tool": "npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "License Compliance Testing",
+      "metric": "Legal Risk Validation",
+      "tool": "npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Supply Chain Security Analysis",
+      "metric": "Trust Integrity Verification",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Dependency Health Monitoring",
+      "metric": "Community Vitality Tracking",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Risk Prioritization",
+      "metric": "Mitigation Effort Ranking",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Continuous Dependency Monitoring",
+      "metric": "Real-Time Alerting",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Vulnerability Dependency Detection",
+      "metric": "Known CVE Count",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Dependency Risk (SCA)",
+      "classification": "Outdated Dependency Detection",
+      "metric": "Version Lag Assessment",
+      "tool": "npm audit + npm ls"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Unit Testing Support",
+      "metric": "Test Case Granularity",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Dead Code Detection",
+      "metric": "Unreachable Logic Identification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Test Completeness Evaluation",
+      "metric": "Coverage Gap Analysis",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Basic Logic Validation",
+      "metric": "Surface-Level Correctness",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Code Execution Verification",
+      "metric": "Statement Coverage %",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Conditional Logic Testing",
+      "metric": "Boolean Accuracy Check",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Control Flow Validation",
+      "metric": "Sequence Integrity Mapping",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Loop Condition Testing",
+      "metric": "Iteration Boundary Verification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Edge Case Detection",
+      "metric": "Boundary Failure Identification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Logic Error Detection",
+      "metric": "Branch Misdirection Discovery",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Test Case Completeness",
+      "metric": "Decision Coverage Gap Analysis",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Decision Outcome Verification",
+      "metric": "Branch Coverage %",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Complete Coverage Path Verification",
+      "metric": "Full Logic Validation",
+      "tool": "nyc v17.1.1"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Partial Path Coverage Detection",
+      "metric": "Gap Identification",
+      "tool": "nyc v17.1.2"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Nested Condition Path Testing",
+      "metric": "Deep Logic Probing",
+      "tool": "nyc v17.1.3"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Loop Path Detection",
+      "metric": "Iterative Route Analysis",
+      "tool": "nyc v17.1.3"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Unreachable Path Detection",
+      "metric": "Ghost Code Discovery",
+      "tool": "nyc v17.1.3"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Exception Path Handling",
+      "metric": "Error Flow Verification",
+      "tool": "nyc v17.1.3"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Multi-Function Path Tracking",
+      "metric": "Cross-Component Mapping",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.0"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "CI/CD Integration Test",
+      "metric": "Automated Quality Enforcement",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.1"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Path Coverage",
+      "classification": "Path Detection Testing",
+      "metric": "Path Coverage %",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.2"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Variable Definition Detection",
+      "metric": "All-Defs Coverage %",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.0"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Definition-Use Mapping",
+      "metric": "Data Path Correlation",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.1"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Coverage Measurement",
+      "metric": "DU-Path Validation",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.2"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Uncovered Definition Detection",
+      "metric": "Dead Data Identification",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.3"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Edge Case Handling",
+      "metric": "Null and Boundary Flow Analysis",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.4"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Definition Coverage",
+      "classification": "Reporting Validation",
+      "metric": "Audit Trail Verification",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.5"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Computational Use Detection (C-Use)",
+      "metric": "Data Processing Validation",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.6"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Predicate Use Detection (P-Use)",
+      "metric": "Logic Influence Assessment",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.7"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Definition-Use Pair Identification",
+      "metric": "Path Correlation Mapping",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.8"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "All-Uses Coverage Verification",
+      "metric": "Comprehensive Data Proofing",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.9"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Partial Uses Coverage Detection",
+      "metric": "Data Flow Gap Analysis",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.10"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Multiple Definitions Handling",
+      "metric": "Ambiguity Resolution",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.11"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Cross-Function Use Detection",
+      "metric": "Inter-procedural Tracking",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.12"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Unreachable Use Detection",
+      "metric": "Ghost Use Identification",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.13"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Coverage Reporting Validation",
+      "metric": "Data Integrity Audit",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.14"
+    },
+    {
+      "testingType": "Data Flow Testing",
+      "technique": "All Uses Coverage",
+      "classification": "Variable Use Detection",
+      "metric": "All-Uses Coverage %",
+      "tool": "ESLint (eslint-scope) + nyc v17.1.15"
+    }
+  ],
+  "compat": {
+    "notes": []
+  },
+  "status": "generated"
+}
