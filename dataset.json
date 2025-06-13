@@ -1,0 +1,144 @@
+{
+  "id": "CE-N16-026",
+  "folder": "javascript-repo-n16-026",
+  "productName": "JasperCompass",
+  "packageName": "jasper-compass",
+  "domain": "Co-op produce shares",
+  "language": "JavaScript",
+  "node": 16,
+  "bundler": "Rollup",
+  "packageManager": "npm",
+  "architecture": "microservices",
+  "toolFamilies": [
+    "diff-cover",
+    "lizard",
+    "mocha-nyc-infra",
+    "pydriller"
+  ],
+  "uniqueMetrics": 17,
+  "metrics": [
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Static Analysis Metric",
+      "metric": "Execution Path Integrity",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Decision Coverage",
+      "metric": "Decision Outcome Verification",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Condition Coverage",
+      "metric": "Logical Sub-expression Validation",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Logic Coverage Metric",
+      "metric": "Total Logical Combinatorial Coverage",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Maintainability Analysis",
+      "metric": "Technical Debt Impact",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Test Prioritization",
+      "metric": "QA Resource Allocation",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Regression Testing Monitoring",
+      "metric": "Coverage Delta %",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Test Suite Effectiveness Tracking",
+      "metric": "Discovery Power Assessment",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "CI/CD Quality Gate Enforcement",
+      "metric": "Deployment Readiness Guard",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Change Impact Analysis",
+      "metric": "Ripple Effect Mapping",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "New Code Testing Validation",
+      "metric": "Fresh Logic Proofing",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Quality Improvement Measurement",
+      "metric": "Structural Health Benchmarking",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Risk-Based Testing Prioritization",
+      "metric": "Code Churn Score",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Regression Testing Focus",
+      "metric": "Impact-Driven Verification",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Defect Prediction",
+      "metric": "Fault Probability Modeling",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Test Case Maintenance Identification",
+      "metric": "Validation Suite Updates",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Change Impact Analysis",
+      "metric": "Side Effect Mapping",
+      "tool": "pydriller"
+    }
+  ],
+  "compat": {
+    "notes": []
+  },
+  "status": "generated"
+}
