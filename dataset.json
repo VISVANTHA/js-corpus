@@ -1,0 +1,357 @@
+{
+  "id": "CE-N18-046",
+  "folder": "javascript-repo-n18-046",
+  "productName": "OrchardFen",
+  "packageName": "orchard-fen",
+  "domain": "Clinic intake queues",
+  "language": "JavaScript",
+  "node": 18,
+  "bundler": "Parcel",
+  "packageManager": "pnpm",
+  "architecture": "microservices",
+  "toolFamilies": [
+    "diff-cover",
+    "eslint-plugin-security",
+    "jscpd",
+    "lizard",
+    "nyc-mocha",
+    "pydriller",
+    "stryker-mocha"
+  ],
+  "uniqueMetrics": 47,
+  "metrics": [
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Static Analysis Metric",
+      "metric": "Execution Path Integrity",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Decision Coverage",
+      "metric": "Decision Outcome Verification",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Condition Coverage",
+      "metric": "Logical Sub-expression Validation",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Logic Coverage Metric",
+      "metric": "Total Logical Combinatorial Coverage",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Maintainability Analysis",
+      "metric": "Technical Debt Impact",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Structural Analysis",
+      "technique": "Cyclomatic Complexity",
+      "classification": "Test Prioritization",
+      "metric": "QA Resource Allocation",
+      "tool": "Lizard"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Defect Propagation Risk Detection",
+      "metric": "Multi-Point Failure Probability",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Refactoring Identification",
+      "metric": "Redundancy Localization",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Code Quality Assessment",
+      "metric": "Structural Cleanliness Score",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Test Maintenance Reduction",
+      "metric": "Test Suite Streamlining",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Refactoring Opportunity Detection",
+      "metric": "Abstraction Potential",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Risk-Based Testing Prioritization",
+      "metric": "Regression Focus Mapping",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Code Quality Auditing",
+      "technique": "Code Duplication",
+      "classification": "Maintainability Testing",
+      "metric": "Synchronization Verification",
+      "tool": "jscpd"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Secure Coding Validation",
+      "metric": "Best Practice Compliance",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Input Validation Testing",
+      "metric": "Entry Point Sanitization",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Data Flow Security Analysis",
+      "metric": "Sensitive Information Tracking",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Authentication & Authorization Weakness Detection",
+      "metric": "Access Control Verification",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Dependency & Library Vulnerability Detection",
+      "metric": "Supply Chain Security",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Compliance & Security Standard Validation",
+      "metric": "Regulatory Alignment",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Security White-box Testing",
+      "technique": "Static Vulnerabilities (SAST)",
+      "classification": "Security Vulnerability Detection",
+      "metric": "Exploit Surface Identification",
+      "tool": "eslint-plugin-security"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Unit Testing Support",
+      "metric": "Test Case Granularity",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Dead Code Detection",
+      "metric": "Unreachable Logic Identification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Test Completeness Evaluation",
+      "metric": "Coverage Gap Analysis",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Basic Logic Validation",
+      "metric": "Surface-Level Correctness",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Statement Coverage",
+      "classification": "Code Execution Verification",
+      "metric": "Statement Coverage %",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Conditional Logic Testing",
+      "metric": "Boolean Accuracy Check",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Control Flow Validation",
+      "metric": "Sequence Integrity Mapping",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Loop Condition Testing",
+      "metric": "Iteration Boundary Verification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Edge Case Detection",
+      "metric": "Boundary Failure Identification",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Logic Error Detection",
+      "metric": "Branch Misdirection Discovery",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Test Case Completeness",
+      "metric": "Decision Coverage Gap Analysis",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Control Flow Testing",
+      "technique": "Branch Coverage",
+      "classification": "Decision Outcome Verification",
+      "metric": "Branch Coverage %",
+      "tool": "nyc + mocha"
+    },
+    {
+      "testingType": "Mutation Testing",
+      "technique": "Mutation Score",
+      "classification": "Fault Detection Capability",
+      "metric": "Logic Error Sensitivity",
+      "tool": "StrykerJS + Mocha"
+    },
+    {
+      "testingType": "Mutation Testing",
+      "technique": "Mutation Score",
+      "classification": "Test Coverage Quality Validation",
+      "metric": "Test Rigor Assessment",
+      "tool": "StrykerJS + Mocha"
+    },
+    {
+      "testingType": "Mutation Testing",
+      "technique": "Mutation Score",
+      "classification": "Test Case Improvement Identification",
+      "metric": "Weak Spot Localization",
+      "tool": "StrykerJS + Mocha"
+    },
+    {
+      "testingType": "Mutation Testing",
+      "technique": "Mutation Score",
+      "classification": "Edge Case Detection",
+      "metric": "Boundary Mutant Analysis",
+      "tool": "StrykerJS + Mocha"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Regression Testing Monitoring",
+      "metric": "Coverage Delta %",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Test Suite Effectiveness Tracking",
+      "metric": "Discovery Power Assessment",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "CI/CD Quality Gate Enforcement",
+      "metric": "Deployment Readiness Guard",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Change Impact Analysis",
+      "metric": "Ripple Effect Mapping",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "New Code Testing Validation",
+      "metric": "Fresh Logic Proofing",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Test Regression/Coverage Analysis",
+      "technique": "Coverage Delta",
+      "classification": "Quality Improvement Measurement",
+      "metric": "Structural Health Benchmarking",
+      "tool": "diff-cover"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Risk-Based Testing Prioritization",
+      "metric": "Code Churn Score",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Regression Testing Focus",
+      "metric": "Impact-Driven Verification",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Defect Prediction",
+      "metric": "Fault Probability Modeling",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Test Case Maintenance Identification",
+      "metric": "Validation Suite Updates",
+      "tool": "pydriller"
+    },
+    {
+      "testingType": "Development Process Analysis",
+      "technique": "Code Churn",
+      "classification": "Change Impact Analysis",
+      "metric": "Side Effect Mapping",
+      "tool": "pydriller"
+    }
+  ],
+  "compat": {
+    "notes": []
+  },
+  "status": "generated"
+}
