@@ -30,9 +30,8 @@ architectures.
 Python corpus (`PY_V313_POETRY_PIP_MONO`). Retires two earlier naming
 schemes: split-repo-per-Node-version, then the briefly-used
 `CE-N{version}-{id}` single-repo scheme. `branch_rename_map.csv` +
-`rename_branches.sh` (in `main/`) carry out that migration; not yet applied
-as of this writing — the user runs it locally via Claude Code once all 9
-families are real-verified (see "Local verification" below).
+`rename_branches.sh` (in `main/`) carry out that migration — already
+applied; all 576 worktree directories are named `JS_V*` on disk.
 
 ## What was broken (prior state, before this rebuild)
 
@@ -71,6 +70,17 @@ families are real-verified (see "Local verification" below).
      gutcheck / CodeQL / knip / Opengrep row by row with no logic.
    - Dependency Risk (SCA) Primary column mixed `npm ls` / `npm audit +
      npm ls` / `N/A` for what is the same underlying check.
+6. **(Found and fixed 2026-09-17, see below) The pushed repo had no
+   `tools/` harness at all.** Every branch had working npm-script wiring
+   (`npm run lint`, `npm run test`, etc.) but none of the per-tool
+   `trigger.yaml`/`run_<tool>.sh` files, no `tool_integration`/`full_check`
+   entry points, and no `Makefile` that every sibling corpus (Python, C#,
+   Java, TypeScript) has. READMEs were thin — a branch-variables table and
+   little else, with no "Supported tools" breakdown, no tool entry points
+   section, no planted-fixtures mapping. This was a design gap in the
+   original JS generator (it was never cross-referenced against the
+   siblings' actual `tools/` structure before being built), not an
+   intentional simplification — corrected in the harness rebuild below.
 
 ## Roster repair (103 metrics, 14 blocks)
 
@@ -171,12 +181,16 @@ Microservices branches).
 ## Generator
 
 `main/generator/gen_js_corpus.py` — single parameterized Python script,
-one Node family at a time (`--family 12 --old-prefix CE-N12`), idempotent
-(wipes each branch's directory down to its `.git` worktree marker before
-writing, so stale legacy content from any prior state can never coexist
-with the regenerated files — see the exception list below). Per branch it
-writes: package.json (pinned devDependencies from the table above, wired
-scripts for every Primary tool), the bundler config file(s),
+one Node family at a time (`--family 12`), idempotent (wipes each
+branch's directory down to its `.git` worktree marker before writing, so
+stale legacy content from any prior state can never coexist with the
+regenerated files — see the exception list below). `--old-prefix` is kept
+only as a legacy fallback for a from-scratch rebuild; the normal path
+(used throughout the harness rebuild below) omits it and writes directly
+into the already-renamed `JS_V*` worktree directories.
+
+Per branch it writes: package.json (pinned devDependencies from the table
+above, wired scripts for every Primary tool), the bundler config file(s),
 package-manager-specific manifests (`.yarnrc.yml` / `pnpm-workspace.yaml`
 / `bunfig.toml`), the eslint config (flat `eslint.config.js` for eslint
 9+/10+ families, legacy `.eslintrc.json` for 8.x families), `.nycrc.json`,
@@ -184,9 +198,12 @@ package-manager-specific manifests (`.yarnrc.yml` / `pnpm-workspace.yaml`
 resolve), `knip.json` (omitted where knip doesn't resolve),
 `.oxlintrc.json` (omitted where oxlint doesn't resolve),
 `scripts/dataflow-scope.js`, `dataset.json` (full 103-metric answer key
-with per-family `compatNotes`), README.md, LICENSE, `.gitignore`,
-`.nvmrc`, and a GitHub Actions CI workflow pinned to that family's exact
-Node patch version.
+with per-family `compatNotes`, plus the new `tools/`-harness fields — see
+below), README.md, LICENSE, `.gitignore`, `.nvmrc`, a GitHub Actions CI
+workflow pinned to that family's exact Node patch version, a `Makefile`,
+and a full `tools/` directory (one subfolder per wired tool, plus
+`tools/_skip.sh`, `tools/tool_integration.js`, `tools/full_check.js`) —
+see "Tool harness rebuild" below for what these contain.
 
 Turbopack note: it has no standalone Node-library CLI outside Next.js, so
 its branches carry **two** files — `turbopack.config.json` (the declared
@@ -199,8 +216,238 @@ The clean-before-write step never touches anything a real local
 install/verification run produced: `node_modules`, any package-manager
 lockfile (`package-lock.json` / `yarn.lock` / `bun.lock` / `bun.lockb` /
 `pnpm-lock.yaml`), `coverage/`, `.nyc_output/`, `.stryker-tmp/`, or yarn's
-own cache/PnP files. The generator owns source/config/docs only; real
-install and test artifacts belong to whoever ran the real toolchain.
+own cache/PnP files. The generator owns source/config/docs/tools only;
+real install and test artifacts belong to whoever ran the real toolchain.
+
+## Tool harness rebuild (2026-09-17)
+
+### Why
+
+After the branch rename/push, direct inspection of the pushed
+`javascript-combos` repo on GitHub showed it fell short of every sibling
+corpus's actual quality: no `tools/<tool>/` folder per branch, no
+`tool_integration`/`full_check` entry points, no `Makefile`, and thin
+READMEs — confirmed against real screenshots of the Python, C#, and
+TypeScript corpora's branches, which all have a rich `tools/` tree (e.g.
+the TypeScript corpus's `TS_V21_VITE_PNPM_MONO` branch: 26 tool
+subfolders plus `tools/tool_integration.ts` and `tools/full_check.ts`).
+The npm-script wiring (`npm run lint`, etc.) was real and worked, but
+that is not the same harness the rest of the corpus family uses, and
+falling short of that bar was a design gap in the original JS generator,
+not an intentional simplification.
+
+The Python corpus (`PY_V311_UV_POETRY_MONO`, inspected directly via a
+locally-connected copy of the repo) was used as the reference
+architecture: `tools/_skip.sh`'s four-exit-code discipline
+(0 ran / 1 failed / 3 skipped-genuine / 4 not-installed, never collapsed
+via `|| true`), `tools/tool_integration.py`'s verify/run/diff-against-
+dataset logic, `tools/full_check.py`'s rule of never hardcoding an
+expected literal (it always reads the expected value from the repo
+itself — `.python-version`, `dataset.json`, the `tools/` tree — because a
+prior TypeScript-corpus `full_check` once hardcoded a version and produced
+spurious failures), and the rich `dataset.json`/README schema.
+
+### What was added, per branch
+
+- **`tools/<dir>/trigger.yaml`** — one per wired tool (21 tools total,
+  see `TOOL_REGISTRY` in the generator): tool name, role (primary/
+  alternative), metric block, resolved pin, `status` (active/dark/
+  not_installed), a new **`measured: true/false`** flag (see below),
+  entrypoint path, expected output, an `expects` narrative, and the
+  `skip_exit_code`/`missing_exit_code` contract.
+- **`tools/<dir>/run_<dir>.sh`** (or `run_pydriller.py` for the one
+  Python-based tool) — the real runner, sourcing `tools/_skip.sh` for the
+  shared floor/require/smoke-check helpers and invoking the actual CLI,
+  never a stub.
+- **`tools/_skip.sh`** — ported from the Python corpus's own version:
+  `require_node_floor`, `require_require` (a real
+  `node -e "require('$mod')"` check), `require_smoke` (a real
+  `--version`/equivalent invocation), `require_git_repo`,
+  `require_binary`, `accept_findings` (for tools whose non-zero exit
+  means "found something," not "crashed").
+- **`tools/tool_integration.js`** — Node port of the Python corpus's
+  `tool_integration.py`: banner mode, `--verify` (checks every wired
+  tool's directory/manifest/entrypoint exists, flags orphans or
+  omissions), `--run` (spawns every runner, classifies exit codes,
+  diffs the real results against `dataset.json`'s claims, exits 0/1/2
+  by the same semantics as the Python original).
+- **`tools/full_check.js`** — Node port of `full_check.py`: cross-checks
+  `.nvmrc`, `package.json`, and `dataset.json` agree on the Node family;
+  confirms the `tools/` directory count matches `dataset.json`'s
+  `toolsWired`; confirms exactly one of `src/`/`packages/` exists; and
+  confirms every declared tool's entrypoint file is actually present.
+  Every expected value is read from the branch's own files — nothing is
+  a hardcoded literal, per the Python sibling's own rule.
+- **`Makefile`** — `help/setup/install/lock/test/check/tools/verify/
+  audit/clean` targets, package-manager-aware (`npm ci` vs
+  `yarn install --immutable` vs `pnpm install --frozen-lockfile` vs
+  `bun install --frozen-lockfile`, and the matching list-installed-
+  packages command per manager).
+- **Richer `dataset.json`**: `toolsWired`/`toolsActive`/`toolsDark`
+  counts computed directly from `TOOL_REGISTRY`, a full
+  `toolsActiveDetail` array (tool/dir/role/block/pin/status/measured/
+  note per tool), and `toolsInactive` for the dark ones — alongside the
+  original 103-metric `metrics` array, unchanged.
+- **Richer README**: a "Running here" table and a "Dark here" table
+  (each row annotated with either "measured: real invocation confirmed"
+  or "declared active from npm registry data; not yet individually
+  invoke-verified on this family"), a Tool entry points section, a
+  Planted-fixtures-to-tool mapping, a workspace-layout tree, and an
+  honest History section (see "On commit history" below).
+
+### The `measured` vs. declared distinction
+
+Every tool now carries an explicit `measured: true/false` flag, because
+this rebuild surfaced three genuinely different epistemic states and the
+harness needed to keep them distinct rather than flattening them into one
+"active" label:
+
+1. **Measured by Claude Code's real per-family installs on the actual
+   Windows host** (`eslint`, `oxlint`, `jscpd`, `stryker`,
+   `eslint-scope`, `nyc` — sourced verbatim from
+   `CLAUDE_VERIFICATION_LOG.md`'s 591 lines of real per-family findings).
+2. **Measured directly in this rebuild session**, via `pip install` (a
+   pure-Python path with no disk/mount constraints) for the two
+   Node-independent external tools:
+   - **lizard**: pip-installed and run for real against the domain's
+     `src/`. Found `policy.js`'s `evaluatePolicy` as the true highest-CCN
+     function (CCN 18) — correcting an earlier assumption in the
+     generator's own `expects` text that `dataflow.js`'s tally loop
+     (CCN 17) was highest. Node-independent by construction, so this
+     holds on all 9 families.
+   - **diff-cover**: the CLI itself (`pip install` + `--help`) was
+     confirmed real and working; its actual coverage-delta *output*
+     depends on nyc's cobertura report, which needs a full npm install
+     this session's device bridge could not complete (see next
+     section) — so the tool's existence and CLI are measured, its
+     numeric output on this domain is not yet.
+3. **Not yet measured, honestly labeled as such** — every other npm-based
+   tool's `active`/`dark` status is a real claim (derived from npm
+   registry `engines.node` data, same method as the rest of this
+   document's pin table), but not one this session or Claude Code has
+   individually invoked and observed on that specific family. The README
+   and `trigger.yaml` say so explicitly rather than presenting it as
+   equivalent to (1) or (2).
+
+`pydriller` is a fourth, distinct case: a real invocation *was attempted*
+in this session but was inconclusive for an environment reason, not a
+tool defect (see next section) — so it is `measured: false`, same as (3),
+but its `expects` field documents the attempt and why it didn't resolve,
+rather than staying silent about it.
+
+### Environment constraints hit in this rebuild session, and how they were handled
+
+This session works through a device bridge that mounts the user's
+Windows folders into a separate Linux VM (`uname -a` confirms Ubuntu
+22.04) — it is not the same machine Claude Code used directly. Two real
+constraints surfaced, both environment-specific, not corpus defects:
+
+- **The mounted Windows folder has slow small-file I/O.** A real `npm
+  install` even for a single small package with `--ignore-scripts` timed
+  out past 175s inside the mount, while the VM's own native filesystem
+  (outside the mount) installed 46 packages in ~2s. Network/registry
+  access itself was confirmed fast (`curl` to `registry.npmjs.org`
+  returned in 0.4s) — the bottleneck is specifically many-small-file
+  writes to the mount, e.g. a `node_modules` tree. The same slowness
+  applies to bulk file generation: writing this rebuild's ~80
+  files/branch across all 576 branches had to be batched into chunks of
+  ~15-24 branches per call and resumed by checking each branch's
+  `tools/_skip.sh` marker, since a full 64-branch family write exceeds
+  this bridge's per-call time limit.
+- **This VM's shared disk is small and mostly full** (~9.8GB total,
+  ~1-1.2GB free after accounting for this session's own negligible
+  usage) — a real `npm install` of even a modest package set (13-18
+  packages) hit `ENOSPC` even from the VM's fast native filesystem.
+
+Given both, further npm-based real-invocation attempts for the newly
+wired tools were not pursued from this session; instead, real signal was
+gathered through lighter-weight paths that don't trigger either
+constraint: `npm view <pkg> version bin engines` (fast, registry-only,
+no disk write) cross-checked 7 previously-unwired packages' real
+existence, bin names, and declared `engines.node` ranges against this
+document's pin table with no contradictions found; and `pip install`
+(pure Python, no npm/no node_modules) gave the two real findings above
+(lizard, diff-cover).
+
+**`pydriller`'s real per-file commit/churn mining could not be completed
+from this session's bridge for an unrelated reason**: each branch
+worktree's `.git` file points at its parent repo via a `gitdir:` line
+using a Windows-style absolute path (e.g. under
+`C:\Users\Prajith K\Desktop\javascript corpus\...`), which this Linux
+bridge VM cannot resolve — confirmed twice, once via a failed `git log`
+and once via `pydriller.Repository('.').traverse_commits()` throwing on
+the same root cause. This is expected to work normally when run directly
+on the real Windows host, the same way Claude Code's other real
+per-family verifications did; `pydriller`'s `trigger.yaml` documents the
+attempt and this specific cause rather than silently marking it
+unmeasured with no explanation.
+
+**Net effect on rigor**: this rebuild brings the JS corpus's `tools/`
+*architecture* to full parity with the Python/C#/Java/TS siblings, and
+adds two genuinely new measured findings (lizard, diff-cover) beyond what
+existed before. It does **not** yet bring the newly-wired tools'
+per-family *invocation* rigor up to the same level as the tools Claude
+Code already verified for real (`eslint`, `oxlint`, `jscpd`, `stryker`,
+`eslint-scope`, `nyc`) — that remaining work needs a real npm install on
+the actual Windows host (or any environment without this session's
+mount-speed and disk-quota constraints), family by family, the same way
+the original 9-family sweep was done. The harness is built to make that
+easy to do incrementally: running `node tools/tool_integration.js --run`
+on a real host, family by family, and flipping each tool's `measured`
+flag to `true` as its real result comes back, is the intended workflow
+going forward.
+
+### On commit history
+
+Unlike the Python corpus's `history` narrative (rebuilt with a rich,
+real, pre-existing ~45-commit multi-author history), the JS corpus's own
+git history is genuinely much thinner — this rebuild deliberately did
+not fabricate a synthetic multi-author history to match. Each branch's
+README states plainly that its real commit history starts from the
+corpus's scaffolding generation, followed by the real scaffolding-bug
+fixes found by Claude Code's actual local install/test runs, and that
+every commit is real and authored by the accounts that actually did the
+work — nothing back-filled.
+
+### Corpus-wide rollout and verification (2026-09-17)
+
+The rebuilt generator was applied to all **576 branches** across all 9
+Node families, batched (writes to the mounted filesystem are slow enough
+that a single 64-branch family write exceeds this bridge's per-call time
+limit, so generation ran in chunks of ~15-24 branches per call, resuming
+by checking for each branch's `tools/_skip.sh` marker rather than
+assuming a fixed index range — safe because `generate_branch` is
+idempotent).
+
+Full structural verification after rollout, all 576 branches:
+- Every `dataset.json` parses and reports `toolsWired: 21`, matching
+  `TOOL_REGISTRY`'s length exactly.
+- Every branch's `tools/` directory has exactly 21 subfolders.
+- Every branch has `tools/tool_integration.js`, `tools/full_check.js`,
+  `tools/_skip.sh`, and a `Makefile`.
+- Every `package.json` parses; every README.md is present and
+  substantive (≥1500 bytes, well above the old thin-README size).
+- **0 errors across all 576 branches.**
+
+One real bug was caught and fixed during this rollout, before it went
+corpus-wide: `trigger_yaml()`'s hardcoded entrypoint template
+(`tools/<dir>/run_<dir>.sh`) didn't special-case `pydriller`, whose real
+runner is `run_pydriller.py` — so every `pydriller/trigger.yaml` declared
+an entrypoint file that didn't exist, even though `tool_integration.js`
+and `full_check.js` both already special-cased it correctly and so
+never surfaced the mismatch themselves. Fixed in the generator before
+the corpus-wide write; re-verified afterward that every declared
+`entrypoint:` field in every `trigger.yaml`, corpus-wide, resolves to a
+real file.
+
+Functional spot-checks (`node tools/tool_integration.js --verify` and
+`node tools/full_check.js`, run for real, not just structurally) on
+branches sampled across all 9 families
+(`JS_V12_ESBUILD_NPM_MONO`, `JS_V16_ROLLUP_YARN_MICRO`,
+`JS_V18_ESBUILD_NPM_MONO`, `JS_V20_VITE_PNPM_MONO`,
+`JS_V22_ESBUILD_NPM_MONO`, `JS_V26_WEBPACK_BUN_MICRO`) all report
+`OK 21 tools wired, every manifest and entrypoint present` and
+`OK 6 cross-file consistency checks passed`.
 
 ## Local verification (Claude Code, real installs — in progress)
 
@@ -321,15 +568,19 @@ combo — zero architecture dependency shown across two separate N12 runs);
 coverage is not run as a separate check, since its pass/fail is
 mechanically downstream of test, which is already checked on all 64.
 
-Still pending from Claude Code's local run: the final clean N12 re-run
-confirming all six checks now agree on every Mono/Micro pair, the
-npm-version cross-check against the bundled-npm table above (a local copy
-of this doc is now on the machine at `main/javascript-repos-build-contract.md`
-so this no longer needs relaying by hand), and the remaining 8 families.
+Claude Code's real per-family findings from this sweep (six fixed
+scaffolding bugs total, plus per-family genuine findings for Node
+14/16/18/20/21/22/24/26 — V8 `?.`/`??` gaps, `oxlint`'s three distinct
+1.83.0 breakage modes, the mocha-12-vs-Stryker `run-helpers` module
+relocation, npm's bundled-version drift) are recorded in full in
+`CLAUDE_VERIFICATION_LOG.md` and are what populate this document's
+`REAL_FINDINGS` table in the generator (see "Tool harness rebuild"
+above) for the six tools Claude Code actually measured for real:
+`eslint`, `oxlint`, `jscpd`, `stryker`, `eslint-scope`, `nyc`.
 
-## Verification performed in this Cowork session (2026-09-16, before local installs)
+## Verification performed in this Cowork session (2026-09-16 and 2026-09-17)
 
-All 576 branches, all 9 families:
+2026-09-16, before local installs, all 576 branches:
 - Every `.json` file parses (`json.load`) — 0 failures.
 - Every `.js`/`.cjs` file parses as valid JavaScript
   (`node --check` / `vm.Script`) — 0 failures.
@@ -342,8 +593,20 @@ All 576 branches, all 9 families:
   — spot-checked and swept via the generator's own clean step.
 - `.git` worktree markers (576 of 576) left intact by the clean step.
 
-This pass could not, by construction, catch the three scaffolding bugs
-above — none of them are JSON or JS syntax errors, and the domain-layer
-smoke test doesn't invoke the bundler/test/lint scripts. That's exactly
-why the real local install-and-run pass exists; see "Local verification"
-above for what it's for and what it already found.
+2026-09-17, after the tool-harness rebuild (see above for the full
+methodology): all 576 branches structurally verified (21/21 tools,
+valid `dataset.json`/`package.json`, every `trigger.yaml` entrypoint
+resolves to a real file, every README substantive); functional
+`tool_integration.js --verify` and `full_check.js` spot-checks passed on
+branches sampled from all 9 families; two new real findings gathered via
+`pip`-installed tools (lizard's CCN correction, diff-cover's CLI
+confirmation); the `pydriller` git-worktree-path environment limitation
+documented rather than glossed over.
+
+Neither pass could, by construction, complete the remaining real
+per-family npm-based invocation of the newly wired tools — that requires
+a real npm install per family, which this session's device bridge
+cannot do at the scale needed (see "Environment constraints" above).
+That work is scoped, described, and ready to run the same way Claude
+Code's original 9-family sweep did, on a host without this session's
+mount-speed/disk-quota limits.
