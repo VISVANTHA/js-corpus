@@ -1,11 +1,5 @@
-import { DATASET_CLOCK } from "../../shared/src/clock.js";
-import { MemoryStore } from "./store.js";
-import { createService } from "./service.js";
+'use strict';
 
-function createApp() {
-  const store = new MemoryStore(DATASET_CLOCK);
-  const service = createService(store);
-  return { product: "HarvestFen", store, service, clock: DATASET_CLOCK };
-}
+const { createApp } = require('../../shared/src/index');
 
-export { createApp };
+module.exports = createApp();
