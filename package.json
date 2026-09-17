@@ -1,22 +1,47 @@
 {
-  "name": "grove-delta",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "GroveDelta \u2014 Orchard harvest lots.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V14_PARCEL_PNPM_MONO)",
   "private": true,
-  "type": "module",
-  "packageManager": "pnpm@7.33.7",
+  "main": "src/index.js",
   "engines": {
-    "node": "14.x"
+    "node": ">=14.21.3"
   },
   "scripts": {
-    "build": "parcel build src/index.js --dist-dir dist --no-source-maps",
-    "test": "nyc mocha --recursive tests"
+    "build": "parcel build src/index.js --target node --dist-dir dist",
+    "test": "mocha tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js src",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "8.4.0",
-    "nyc": "15.1.0",
-    "parcel": "2.12.0"
+    "@dodona/dolos": "^2.3.0",
+    "@parcel/config-default": "^2.12.0",
+    "@stryker-mutator/core": "^6.4.2",
+    "@stryker-mutator/mocha-runner": "^6.4.2",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.0.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-security": "^2.1.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^7.2.2",
+    "espree": "^9.6.1",
+    "jscpd": "^4.3.0",
+    "mocha": "^10.8.2",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^15.1.0",
+    "oxlint": "^1.16.0",
+    "parcel": "^2.12.0"
   },
-  "source": "src/index.js"
+  "targets": {
+    "node": {
+      "context": "node",
+      "includeNodeModules": true
+    }
+  },
+  "packageManager": "pnpm@9.12.3"
 }

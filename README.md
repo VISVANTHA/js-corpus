@@ -1,23 +1,37 @@
-# GroveDelta
+# JS_V14_PARCEL_PNPM_MONO
 
-GroveDelta is a small JavaScript service for **Orchard harvest lots**.
+Part of the `javascript-combos` white-box test-repo corpus (GraniteMill /
+`granite-mill`, domain: Community garden plots).
 
-This repository is corpus item `CE-N14-045`: Node.js 14, Parcel, pnpm, Monolith.
+- **Node.js:** 14.21.3 (family V14)
+- **Bundler:** Parcel
+- **Package manager:** pnpm
+- **Architecture:** Monolith
 
-It is a realistic original product used as White Box ground truth. Metric coverage is listed in `docs/METRIC_COVERAGE.md` for this Node version only (17 unique metrics on the combo sheet).
+The application code under `src/` (or `packages/*/src/` for Microservices
+branches) is byte-identical across all 576 branches of this corpus; only the
+build tool, package manager, architecture layout, and the resolved tool-pin
+table below vary.
 
-## Scripts
+## Resolved tool pins for Node 14
 
-- `npm test` (or the repo package manager) — mocha, with nyc when that family applies
-- `npm run build` — Parcel (or a copy fallback when the bundler cannot run on this Node)
+| Block | Primary | Alternative |
+| --- | --- | --- |
+| Cyclomatic Complexity | Lizard | cyclomatic-complexity 1.0.0 |
+| Cognitive Complexity | eslint-plugin-sonarjs 4.2.1 | cognitive-complexity-ts 0.8.2 |
+| Code Duplication | jscpd 4.3.0 | Dolos 2.3.0 |
+| Lint / Rule Violations | eslint 8.57.1 | oxlint 1.16.0 |
+| Static Vulnerabilities (SAST) | eslint-plugin-security 2.1.1 | OpenGrep |
+| Dependency Risk (SCA) | npm audit + npm ls | trivy |
+| Statement Coverage | nyc + mocha 15.1.0 | monocart-coverage-reports 2.13.0 |
+| Branch Coverage | nyc + mocha 15.1.0 | monocart-coverage-reports 2.13.0 |
+| Path Coverage | nyc + mocha (branch-coverage proxy) 15.1.0 | monocart-coverage-reports 2.13.0 |
+| Mutation Score | StrykerJS + Mocha 6.4.2 | gutcheck (not available on Node 14) |
+| Coverage Delta | diff-cover | monocart-coverage-reports 2.13.0 |
+| All Definition Coverage | ESLint (eslint-scope) 7.2.2 | knip (not available on Node 14) |
+| All Uses Coverage | ESLint (eslint-scope) 7.2.2 | knip (not available on Node 14) |
+| Code Churn | pydriller | Git-Spark (not available on Node 14) |
 
-
-## Compatibility notes
-
-- pnpm is pinned to 6.x for Node 14.
-
-## License
-
-MIT
-
-Generated as `javascript-repo-n14-045`.
+See `javascript-repos-build-contract.md` in the Testable (Tools) project for
+the full 103-metric roster, the repair notes, and the live pin-resolution
+method (npm registry `engines.node` ranges, prereleases excluded).
