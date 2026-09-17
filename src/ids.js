@@ -1,11 +1,17 @@
+'use strict';
+
+const PREFIX = 'GM-';
+
 function isProductId(value) {
-  return typeof value === "string" && value.startsWith("BR12-021-");
+  return typeof value === 'string' && value.startsWith(PREFIX) && value.length > PREFIX.length;
 }
 
-function toProductId(raw) {
-  if (isProductId(raw)) return raw;
-  const cleaned = String(raw || "").replace(/[^a-zA-Z0-9]/g, "").slice(0, 12);
-  return "BR12-021-" + cleaned;
+function toProductId(seq) {
+  const n = Number(seq);
+  if (!Number.isInteger(n) || n < 0) {
+    throw new TypeError('toProductId requires a non-negative integer sequence');
+  }
+  return PREFIX + String(n).padStart(4, '0');
 }
 
-module.exports = { isProductId, toProductId };
+module.exports = { PREFIX, isProductId, toProductId };
