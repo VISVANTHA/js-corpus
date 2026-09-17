@@ -8,7 +8,6 @@
   "exclude": [
     "tests/**",
     "dist/**",
-    "eslint-rules/**",
     "scripts/**"
   ],
   "reporter": [
