@@ -1,30 +1,42 @@
 {
-  "name": "umber-terrace",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "UmberTerrace \u2014 Studio kiln schedules.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V21_TURBOPACK_BUN_MICRO)",
   "private": true,
-  "type": "module",
-  "packageManager": "bun@1.1.38",
+  "main": "packages/api/src/index.js",
   "engines": {
-    "node": "21.x"
+    "node": ">=21.7.3"
   },
   "scripts": {
-    "build": "node scripts/copy-build.cjs",
-    "test": "mocha --recursive tests",
-    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
-    "dup": "jscpd src packages",
-    "mutate": "stryker run"
+    "build": "node esbuild.config.cjs",
+    "test": "mocha packages/shared/tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js packages",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "10.2.0",
-    "jscpd": "3.5.10",
-    "eslint": "8.57.1",
-    "eslint-plugin-security": "1.7.1",
-    "@stryker-mutator/core": "8.7.1",
-    "@stryker-mutator/mocha-runner": "8.7.1"
+    "@dodona/dolos": "^2.9.3",
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/mocha-runner": "^9.6.1",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^8.4.0",
+    "espree": "^10.2.0",
+    "gutcheck": "^0.10.0",
+    "jscpd": "^5.2.1",
+    "knip": "^5.88.1",
+    "mocha": "^11.8.0",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^17.1.0",
+    "oxlint": "^1.16.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "packageManager": "bun@1.1.34"
 }
