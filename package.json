@@ -1,33 +1,42 @@
 {
-  "name": "iron-spire",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "IronSpire \u2014 Field sample tracking.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V26_ESBUILD_YARN_MICRO)",
   "private": true,
-  "type": "module",
-  "packageManager": "yarn@3.6.4",
+  "main": "packages/api/src/index.js",
   "engines": {
-    "node": "26.x"
+    "node": ">=26.8.1"
   },
   "scripts": {
     "build": "node esbuild.config.cjs",
-    "test": "nyc mocha --recursive tests",
-    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
-    "dup": "jscpd src packages",
-    "mutate": "stryker run"
+    "test": "mocha packages/shared/tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js packages",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "10.2.0",
-    "nyc": "17.1.0",
-    "jscpd": "3.5.10",
-    "eslint": "8.57.1",
-    "eslint-plugin-security": "1.7.1",
-    "eslint-scope": "7.2.2",
-    "@stryker-mutator/core": "8.7.1",
-    "@stryker-mutator/mocha-runner": "8.7.1",
-    "esbuild": "0.24.2"
+    "@dodona/dolos": "^2.9.3",
+    "@stryker-mutator/core": "^10.0.0",
+    "@stryker-mutator/mocha-runner": "^10.0.0",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "esbuild": "^0.25.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^9.1.2",
+    "espree": "^10.2.0",
+    "gutcheck": "^0.10.0",
+    "jscpd": "^5.2.1",
+    "knip": "^6.36.0",
+    "mocha": "^12.0.1",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^18.0.0",
+    "oxlint": "^1.83.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "packageManager": "yarn@4.5.3"
 }
