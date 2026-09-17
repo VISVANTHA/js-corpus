@@ -1,24 +1,42 @@
 {
-  "name": "fern-hearth",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "FernHearth \u2014 Archive box indexes.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V24_ROLLUP_BUN_MONO)",
   "private": true,
-  "type": "module",
-  "packageManager": "bun@1.1.38",
+  "main": "src/index.js",
   "engines": {
-    "node": "24.x"
+    "node": ">=24.20.0"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.cjs",
-    "test": "nyc mocha --recursive tests",
-    "lint": "eslint src tests eslint-rules --ignore-pattern dist || eslint . --ignore-pattern dist --ignore-pattern node_modules"
+    "build": "rollup -c rollup.config.mjs",
+    "test": "mocha tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js src",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "10.2.0",
-    "nyc": "17.1.0",
-    "eslint": "8.57.1",
-    "eslint-plugin-sonarjs": "0.25.1",
-    "rollup": "4.28.1"
-  }
+    "@dodona/dolos": "^2.9.3",
+    "@stryker-mutator/core": "^10.0.0",
+    "@stryker-mutator/mocha-runner": "^10.0.0",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "eslint": "^10.10.0",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^9.1.2",
+    "espree": "^10.2.0",
+    "gutcheck": "^0.10.0",
+    "jscpd": "^5.2.1",
+    "knip": "^6.36.0",
+    "mocha": "^12.0.1",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^18.0.0",
+    "oxlint": "^1.83.0",
+    "rollup": "^4.24.0"
+  },
+  "packageManager": "bun@1.1.34"
 }
