@@ -1,342 +1,146 @@
 {
-  "id": "CE-N24-044",
-  "folder": "javascript-repo-n24-044",
-  "productName": "GlacierMarina",
-  "packageName": "glacier-marina",
-  "domain": "Maker-space access",
+  "id": "JS_V24_PARCEL_YARN_MICRO",
+  "productName": "GraniteMill",
+  "packageName": "granite-mill",
+  "domain": "Community garden plots",
   "language": "JavaScript",
-  "node": 24,
+  "node": "24.20.0",
+  "nodeFamily": 24,
   "bundler": "Parcel",
   "packageManager": "yarn (Berry)",
-  "architecture": "microservices",
-  "toolFamilies": [
-    "eslint",
-    "eslint-plugin-sonarjs",
-    "npm-audit",
-    "npm-ls",
-    "nyc",
-    "nyc-mocha"
-  ],
-  "uniqueMetrics": 45,
+  "bundledNpm": "10.9.2",
+  "architecture": "Microservices",
+  "toolRosterVersion": "js-roster-v2-2026-09-16",
+  "uniqueMetrics": 103,
   "metrics": [
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Maintainability Evaluation",
-      "metric": "Technical Debt Impact",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Cyclomatic Complexity",
+      "metricCount": 6,
+      "primaryTool": "Lizard",
+      "primaryVersion": null,
+      "alternativeTool": "cyclomatic-complexity",
+      "alternativeVersion": "1.2.5",
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Testability Analysis",
-      "metric": "Unit Test Complexity",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Cognitive Complexity",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-sonarjs",
+      "primaryVersion": "4.2.1",
+      "alternativeTool": "cognitive-complexity-ts",
+      "alternativeVersion": "0.8.2",
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Risk Detection",
-      "metric": "Defect Probability",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Code Duplication",
+      "metricCount": 7,
+      "primaryTool": "jscpd",
+      "primaryVersion": "5.2.1",
+      "alternativeTool": "Dolos",
+      "alternativeVersion": "2.9.3",
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Refactoring Guidance",
-      "metric": "Modularization Opportunity",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Lint / Rule Violations",
+      "metricCount": 12,
+      "primaryTool": "eslint",
+      "primaryVersion": "10.10.0",
+      "alternativeTool": "oxlint",
+      "alternativeVersion": "1.83.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Code Review Support",
-      "metric": "Reviewer Fatigue Factor",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Static Vulnerabilities (SAST)",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-security",
+      "primaryVersion": "4.0.1",
+      "alternativeTool": "OpenGrep",
+      "alternativeVersion": null,
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Testing Effort Prioritization",
-      "metric": "QA Resource Allocation",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Dependency Risk (SCA)",
+      "metricCount": 8,
+      "primaryTool": "npm audit + npm ls",
+      "primaryVersion": null,
+      "alternativeTool": "trivy",
+      "alternativeVersion": null,
+      "compatNotes": []
     },
     {
-      "testingType": "Readability / Maintainability",
-      "technique": "Cognitive Complexity",
-      "classification": "Code Understandability Analysis",
-      "metric": "Human Cognitive Load",
-      "tool": "eslint-plugin-sonarjs"
+      "block": "Statement Coverage",
+      "metricCount": 5,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "18.0.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Rule Detection Test",
-      "metric": "Violation Density per KLOC",
-      "tool": "eslint"
+      "block": "Branch Coverage",
+      "metricCount": 7,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "18.0.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Unused Variable Detection",
-      "metric": "Resource Waste Identification",
-      "tool": "eslint"
+      "block": "Path Coverage",
+      "metricCount": 10,
+      "primaryTool": "nyc + mocha (branch-coverage proxy)",
+      "primaryVersion": "18.0.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": [
+        "No JS-native path-coverage tool resolved; branch coverage used as a documented proxy."
+      ]
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Naming Convention Validation",
-      "metric": "Semantic Consistency Score",
-      "tool": "eslint"
+      "block": "Mutation Score",
+      "metricCount": 7,
+      "primaryTool": "StrykerJS + Mocha",
+      "primaryVersion": "10.0.0",
+      "alternativeTool": "gutcheck",
+      "alternativeVersion": "0.10.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Code Style Rule Validation",
-      "metric": "Syntactic Uniformity Score",
-      "tool": "eslint"
+      "block": "Coverage Delta",
+      "metricCount": 6,
+      "primaryTool": "diff-cover",
+      "primaryVersion": null,
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Complexity Rule Detection",
-      "metric": "Structural Threshold Monitoring",
-      "tool": "eslint"
+      "block": "All Definition Coverage",
+      "metricCount": 6,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "9.1.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": "6.36.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Rule Severity Classification",
-      "metric": "Impact Prioritization",
-      "tool": "eslint"
+      "block": "All Uses Coverage",
+      "metricCount": 10,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "9.1.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": "6.36.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Multiple Violations Detection",
-      "metric": "Aggregated Risk Assessment",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "False Positive Prevention",
-      "metric": "Accuracy Tuning",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Custom Rule Validation",
-      "metric": "Project-Specific Enforcement",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Configuration File Handling",
-      "metric": "Environment Standardization",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "CI/CD Integration Validation",
-      "metric": "Automated Gatekeeping",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Static Code Analysis",
-      "technique": "Lint / Rule Violations",
-      "classification": "Violation Reporting Validation",
-      "metric": "Quality Audit Trail",
-      "tool": "eslint"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Transitive Dependency Analysis",
-      "metric": "Hidden Relationship Mapping",
-      "tool": "npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "License Compliance Testing",
-      "metric": "Legal Risk Validation",
-      "tool": "npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Supply Chain Security Analysis",
-      "metric": "Trust Integrity Verification",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Dependency Health Monitoring",
-      "metric": "Community Vitality Tracking",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Risk Prioritization",
-      "metric": "Mitigation Effort Ranking",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Continuous Dependency Monitoring",
-      "metric": "Real-Time Alerting",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Vulnerability Dependency Detection",
-      "metric": "Known CVE Count",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Security White-box Testing",
-      "technique": "Dependency Risk (SCA)",
-      "classification": "Outdated Dependency Detection",
-      "metric": "Version Lag Assessment",
-      "tool": "npm audit + npm ls"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Statement Coverage",
-      "classification": "Unit Testing Support",
-      "metric": "Test Case Granularity",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Statement Coverage",
-      "classification": "Dead Code Detection",
-      "metric": "Unreachable Logic Identification",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Statement Coverage",
-      "classification": "Test Completeness Evaluation",
-      "metric": "Coverage Gap Analysis",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Statement Coverage",
-      "classification": "Basic Logic Validation",
-      "metric": "Surface-Level Correctness",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Statement Coverage",
-      "classification": "Code Execution Verification",
-      "metric": "Statement Coverage %",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Conditional Logic Testing",
-      "metric": "Boolean Accuracy Check",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Control Flow Validation",
-      "metric": "Sequence Integrity Mapping",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Loop Condition Testing",
-      "metric": "Iteration Boundary Verification",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Edge Case Detection",
-      "metric": "Boundary Failure Identification",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Logic Error Detection",
-      "metric": "Branch Misdirection Discovery",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Test Case Completeness",
-      "metric": "Decision Coverage Gap Analysis",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Branch Coverage",
-      "classification": "Decision Outcome Verification",
-      "metric": "Branch Coverage %",
-      "tool": "nyc + mocha"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Complete Coverage Path Verification",
-      "metric": "Full Logic Validation",
-      "tool": "nyc v17.1.1"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Partial Path Coverage Detection",
-      "metric": "Gap Identification",
-      "tool": "nyc v17.1.2"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Nested Condition Path Testing",
-      "metric": "Deep Logic Probing",
-      "tool": "nyc v17.1.3"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Loop Path Detection",
-      "metric": "Iterative Route Analysis",
-      "tool": "nyc v17.1.3"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Unreachable Path Detection",
-      "metric": "Ghost Code Discovery",
-      "tool": "nyc v17.1.3"
-    },
-    {
-      "testingType": "Control Flow Testing",
-      "technique": "Path Coverage",
-      "classification": "Exception Path Handling",
-      "metric": "Error Flow Verification",
-      "tool": "nyc v17.1.3"
+      "block": "Code Churn",
+      "metricCount": 5,
+      "primaryTool": "pydriller",
+      "primaryVersion": null,
+      "alternativeTool": "Git-Spark",
+      "alternativeVersion": "1.3.2",
+      "compatNotes": []
     }
   ],
-  "compat": {
-    "notes": []
-  },
   "status": "generated"
 }
