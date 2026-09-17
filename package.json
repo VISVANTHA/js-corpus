@@ -1,0 +1,49 @@
+{
+  "name": "granite-mill",
+  "version": "1.0.0",
+  "description": "GraniteMill -- Community garden plots (JS_V20_PARCEL_PNPM_MICRO)",
+  "private": true,
+  "main": "packages/api/src/index.js",
+  "engines": {
+    "node": ">=20.20.2"
+  },
+  "scripts": {
+    "build": "parcel build packages/api/src/index.js --target node --dist-dir dist",
+    "test": "mocha packages/shared/tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js packages",
+    "audit": "npm audit --json"
+  },
+  "devDependencies": {
+    "@dodona/dolos": "^2.9.3",
+    "@parcel/config-default": "^2.12.0",
+    "@stryker-mutator/core": "^9.6.1",
+    "@stryker-mutator/mocha-runner": "^9.6.1",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "eslint": "^10.10.0",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^9.1.2",
+    "espree": "^10.2.0",
+    "gutcheck": "^0.10.0",
+    "jscpd": "^5.2.1",
+    "knip": "^6.36.0",
+    "mocha": "^12.0.1",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^18.0.0",
+    "oxlint": "^1.83.0",
+    "parcel": "^2.12.0"
+  },
+  "targets": {
+    "node": {
+      "context": "node",
+      "includeNodeModules": true
+    }
+  },
+  "packageManager": "pnpm@9.12.3"
+}
