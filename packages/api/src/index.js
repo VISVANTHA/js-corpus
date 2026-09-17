@@ -1,11 +1,5 @@
-const { DATASET_CLOCK } = require("../../shared/src/clock");
-const { MemoryStore } = require("./store");
-const { createService } = require("./service");
+'use strict';
 
-function createApp() {
-  const store = new MemoryStore(DATASET_CLOCK);
-  const service = createService(store);
-  return { product: "AlderTerrace", store, service, clock: DATASET_CLOCK };
-}
+const { createApp } = require('../../shared/src/index');
 
-module.exports = { createApp };
+module.exports = createApp();
