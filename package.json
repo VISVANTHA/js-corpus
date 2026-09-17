@@ -1,33 +1,42 @@
 {
-  "name": "pebble-inlay",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "PebbleInlay \u2014 Fleet maintenance logs.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V18_SWC_BUN_MICRO)",
   "private": true,
-  "type": "module",
-  "packageManager": "bun@1.1.38",
+  "main": "packages/api/src/index.js",
   "engines": {
-    "node": "18.x"
+    "node": ">=18.20.8"
   },
   "scripts": {
-    "build": "swc src -d dist",
-    "test": "nyc mocha --recursive tests",
-    "lint": "eslint packages tests eslint-rules --ignore-pattern dist",
-    "dup": "jscpd src packages",
-    "mutate": "stryker run"
+    "build": "swc src -d dist --config-file .swcrc",
+    "test": "mocha packages/shared/tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js packages",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "10.2.0",
-    "nyc": "15.1.0",
-    "jscpd": "3.5.10",
-    "eslint": "8.57.1",
-    "eslint-plugin-security": "1.7.1",
-    "@stryker-mutator/core": "6.4.2",
-    "@stryker-mutator/mocha-runner": "6.4.2",
-    "@swc/core": "1.9.3",
-    "@swc/cli": "0.5.2"
+    "@dodona/dolos": "^2.9.3",
+    "@stryker-mutator/core": "^8.7.1",
+    "@stryker-mutator/mocha-runner": "^8.7.1",
+    "@swc/cli": "^0.3.0",
+    "@swc/core": "^1.9.0",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^8.4.0",
+    "espree": "^10.2.0",
+    "jscpd": "^5.2.1",
+    "knip": "^5.88.1",
+    "mocha": "^11.8.0",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^17.1.0",
+    "oxlint": "^1.16.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "packageManager": "bun@1.1.34"
 }
