@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@dodona/dolos": "^2.9.3",
-    "@parcel/config-default": "^2.12.0",
     "@stryker-mutator/core": "^8.7.1",
     "@stryker-mutator/mocha-runner": "^8.7.1",
     "cognitive-complexity-ts": "^0.8.2",
@@ -37,12 +36,6 @@
     "nyc": "^17.1.0",
     "oxlint": "^1.16.0",
     "parcel": "^2.12.0"
-  },
-  "targets": {
-    "node": {
-      "context": "node",
-      "includeNodeModules": true
-    }
   },
   "packageManager": "pnpm@9.12.3"
 }
