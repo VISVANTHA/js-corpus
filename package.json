@@ -1,29 +1,41 @@
 {
-  "name": "nimbus-delta",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "NimbusDelta \u2014 Orchard harvest lots.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V18_ROLLUP_PNPM_MONO)",
   "private": true,
-  "type": "module",
-  "packageManager": "pnpm@8.15.9",
+  "main": "src/index.js",
   "engines": {
-    "node": "18.x"
+    "node": ">=18.20.8"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.cjs",
-    "test": "nyc mocha --recursive tests",
-    "lint": "eslint src tests eslint-rules --ignore-pattern dist || eslint . --ignore-pattern dist --ignore-pattern node_modules",
-    "dup": "jscpd src packages",
-    "mutate": "stryker run"
+    "build": "rollup -c rollup.config.mjs",
+    "test": "mocha tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js src",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "10.2.0",
-    "nyc": "15.1.0",
-    "jscpd": "3.5.10",
-    "eslint": "8.57.1",
-    "eslint-plugin-security": "1.7.1",
-    "@stryker-mutator/core": "6.4.2",
-    "@stryker-mutator/mocha-runner": "6.4.2",
-    "rollup": "3.29.4"
-  }
+    "@dodona/dolos": "^2.9.3",
+    "@stryker-mutator/core": "^8.7.1",
+    "@stryker-mutator/mocha-runner": "^8.7.1",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-security": "^4.0.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^8.4.0",
+    "espree": "^10.2.0",
+    "jscpd": "^5.2.1",
+    "knip": "^5.88.1",
+    "mocha": "^11.8.0",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^17.1.0",
+    "oxlint": "^1.16.0",
+    "rollup": "^4.24.0"
+  },
+  "packageManager": "pnpm@9.12.3"
 }
