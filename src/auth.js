@@ -1,9 +1,13 @@
-const { sanitizeText, allowRole } = require("./sanitize");
+'use strict';
 
 function authorize(actor, action) {
-  const role = sanitizeText(actor && actor.role);
-  if (!allowRole(role)) return { ok: false, reason: "unknown-role" };
-  if (action === "write" && role === "viewer") return { ok: false, reason: "read-only" };
-  return { ok: true, role };
+  if (!actor || typeof actor.role !== 'string') {
+    return { allowed: false, reason: 'unknown-actor' };
+  }
+  if (actor.role === 'viewer' && action === 'write') {
+    return { allowed: false, reason: 'viewer-cannot-write' };
+  }
+  return { allowed: true, reason: 'ok' };
 }
+
 module.exports = { authorize };
