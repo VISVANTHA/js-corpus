@@ -1,25 +1,48 @@
 {
-  "name": "kestrel-inlay",
+  "name": "granite-mill",
   "version": "1.0.0",
-  "description": "KestrelInlay \u2014 Fleet maintenance logs.",
-  "license": "MIT",
+  "description": "GraniteMill -- Community garden plots (JS_V16_PARCEL_BUN_MICRO)",
   "private": true,
-  "type": "module",
-  "packageManager": "bun@1.1.38",
+  "main": "packages/api/src/index.js",
   "engines": {
-    "node": "16.x"
+    "node": ">=16.20.2"
   },
   "scripts": {
-    "build": "parcel build packages/api/src/index.js --dist-dir dist --no-source-maps",
-    "test": "nyc mocha --recursive tests"
+    "build": "parcel build packages/api/src/index.js --target node --dist-dir dist",
+    "test": "mocha packages/shared/tests/**/*.test.js",
+    "lint": "eslint .",
+    "lint:oxlint": "oxlint .",
+    "coverage": "nyc npm test",
+    "duplication": "jscpd .",
+    "mutation": "stryker run",
+    "dataflow": "node scripts/dataflow-scope.js packages",
+    "audit": "npm audit --json"
   },
   "devDependencies": {
-    "mocha": "8.4.0",
-    "nyc": "15.1.0",
-    "parcel": "2.12.0"
+    "@dodona/dolos": "^2.5.1",
+    "@parcel/config-default": "^2.12.0",
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/mocha-runner": "^7.3.0",
+    "cognitive-complexity-ts": "^0.8.2",
+    "cyclomatic-complexity": "^1.2.4",
+    "eslint": "^8.57.1",
+    "eslint-plugin-security": "^2.1.1",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-scope": "^7.2.2",
+    "espree": "^9.6.1",
+    "jscpd": "^4.3.0",
+    "knip": "^2.43.0",
+    "mocha": "^10.8.2",
+    "monocart-coverage-reports": "^2.13.0",
+    "nyc": "^15.1.0",
+    "oxlint": "^1.16.0",
+    "parcel": "^2.12.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
-  "source": "packages/api/src/index.js"
+  "targets": {
+    "node": {
+      "context": "node",
+      "includeNodeModules": true
+    }
+  },
+  "packageManager": "bun@1.1.34"
 }
