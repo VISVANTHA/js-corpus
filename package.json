@@ -21,7 +21,6 @@
   "devDependencies": {
     "@dodona/dolos": "^2.9.3",
     "@rspack/cli": "^1.0.0",
-    "@rspack/core": "^1.0.0",
     "@stryker-mutator/core": "^8.7.1",
     "@stryker-mutator/mocha-runner": "^8.7.1",
     "cognitive-complexity-ts": "^0.8.2",
