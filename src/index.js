@@ -1,10 +1,16 @@
-const { DATASET_CLOCK } = require("./clock");
-const { MemoryStore } = require("./store");
-const { createService } = require("./service");
+'use strict';
+
+const { createService } = require('./service');
+const { MemoryStore } = require('./store');
+
 function createApp() {
-  const store = new MemoryStore(DATASET_CLOCK);
+  const store = new MemoryStore();
   const service = createService(store);
-  return { product: "BrambleQuarry", store, service, clock: DATASET_CLOCK };
+  return {
+    product: 'GraniteMill',
+    domain: 'Community garden plots',
+    service,
+  };
 }
 
 module.exports = { createApp };
