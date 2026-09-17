@@ -1,6 +1,10 @@
-const path = require("path");
 module.exports = {
-  entry: "./src/index.js",
-  target: "node",
-  output: { path: path.resolve(__dirname, "dist"), filename: "index.js" },
+  entry: './src/index.js',
+  target: 'node',
+  mode: 'production',
+  output: {
+    filename: 'index.js',
+    path: __dirname + '/dist',
+    library: { type: 'commonjs2' },
+  },
 };
