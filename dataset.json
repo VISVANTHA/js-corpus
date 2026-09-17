@@ -1,144 +1,156 @@
 {
-  "id": "CE-N12-001",
-  "folder": "javascript-repo-n12-001",
-  "productName": "AlderMill",
-  "packageName": "alder-mill",
+  "id": "JS_V12_ESBUILD_NPM_MONO",
+  "productName": "GraniteMill",
+  "packageName": "granite-mill",
   "domain": "Community garden plots",
   "language": "JavaScript",
-  "node": 12,
+  "node": "12.22.12",
+  "nodeFamily": 12,
   "bundler": "esbuild",
   "packageManager": "npm",
-  "architecture": "monolith",
-  "toolFamilies": [
-    "diff-cover",
-    "lizard",
-    "mocha-nyc-infra",
-    "pydriller"
-  ],
-  "uniqueMetrics": 17,
+  "bundledNpm": "6.14.18",
+  "architecture": "Monolith",
+  "toolRosterVersion": "js-roster-v2-2026-09-16",
+  "uniqueMetrics": 103,
   "metrics": [
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Static Analysis Metric",
-      "metric": "Execution Path Integrity",
-      "tool": "Lizard"
+      "block": "Cyclomatic Complexity",
+      "metricCount": 6,
+      "primaryTool": "Lizard",
+      "primaryVersion": null,
+      "alternativeTool": "cyclomatic-complexity",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "cyclomatic-complexity not available on Node 12 (engines.node excludes this family)"
+      ]
     },
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Decision Coverage",
-      "metric": "Decision Outcome Verification",
-      "tool": "Lizard"
+      "block": "Cognitive Complexity",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-sonarjs",
+      "primaryVersion": "4.2.1",
+      "alternativeTool": "cognitive-complexity-ts",
+      "alternativeVersion": "0.8.2",
+      "compatNotes": []
     },
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Condition Coverage",
-      "metric": "Logical Sub-expression Validation",
-      "tool": "Lizard"
+      "block": "Code Duplication",
+      "metricCount": 7,
+      "primaryTool": "jscpd",
+      "primaryVersion": "4.3.0",
+      "alternativeTool": "Dolos",
+      "alternativeVersion": "1.6.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Logic Coverage Metric",
-      "metric": "Total Logical Combinatorial Coverage",
-      "tool": "Lizard"
+      "block": "Lint / Rule Violations",
+      "metricCount": 12,
+      "primaryTool": "eslint",
+      "primaryVersion": "8.57.1",
+      "alternativeTool": "oxlint",
+      "alternativeVersion": "1.16.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Maintainability Analysis",
-      "metric": "Technical Debt Impact",
-      "tool": "Lizard"
+      "block": "Static Vulnerabilities (SAST)",
+      "metricCount": 7,
+      "primaryTool": "eslint-plugin-security",
+      "primaryVersion": "2.1.1",
+      "alternativeTool": "OpenGrep",
+      "alternativeVersion": null,
+      "compatNotes": []
     },
     {
-      "testingType": "Structural Analysis",
-      "technique": "Cyclomatic Complexity",
-      "classification": "Test Prioritization",
-      "metric": "QA Resource Allocation",
-      "tool": "Lizard"
+      "block": "Dependency Risk (SCA)",
+      "metricCount": 8,
+      "primaryTool": "npm audit + npm ls",
+      "primaryVersion": null,
+      "alternativeTool": "trivy",
+      "alternativeVersion": null,
+      "compatNotes": []
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "Regression Testing Monitoring",
-      "metric": "Coverage Delta %",
-      "tool": "diff-cover"
+      "block": "Statement Coverage",
+      "metricCount": 5,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "Test Suite Effectiveness Tracking",
-      "metric": "Discovery Power Assessment",
-      "tool": "diff-cover"
+      "block": "Branch Coverage",
+      "metricCount": 7,
+      "primaryTool": "nyc + mocha",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "CI/CD Quality Gate Enforcement",
-      "metric": "Deployment Readiness Guard",
-      "tool": "diff-cover"
+      "block": "Path Coverage",
+      "metricCount": 10,
+      "primaryTool": "nyc + mocha (branch-coverage proxy)",
+      "primaryVersion": "15.1.0",
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": [
+        "No JS-native path-coverage tool resolved; branch coverage used as a documented proxy."
+      ]
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "Change Impact Analysis",
-      "metric": "Ripple Effect Mapping",
-      "tool": "diff-cover"
+      "block": "Mutation Score",
+      "metricCount": 7,
+      "primaryTool": "StrykerJS + Mocha",
+      "primaryVersion": "5.6.1",
+      "alternativeTool": "gutcheck",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "gutcheck not available on Node 12 (engines.node excludes this family)"
+      ]
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "New Code Testing Validation",
-      "metric": "Fresh Logic Proofing",
-      "tool": "diff-cover"
+      "block": "Coverage Delta",
+      "metricCount": 6,
+      "primaryTool": "diff-cover",
+      "primaryVersion": null,
+      "alternativeTool": "monocart-coverage-reports",
+      "alternativeVersion": "2.13.0",
+      "compatNotes": []
     },
     {
-      "testingType": "Test Regression/Coverage Analysis",
-      "technique": "Coverage Delta",
-      "classification": "Quality Improvement Measurement",
-      "metric": "Structural Health Benchmarking",
-      "tool": "diff-cover"
+      "block": "All Definition Coverage",
+      "metricCount": 6,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "7.2.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "knip not available on Node 12 (engines.node excludes this family)"
+      ]
     },
     {
-      "testingType": "Development Process Analysis",
-      "technique": "Code Churn",
-      "classification": "Risk-Based Testing Prioritization",
-      "metric": "Code Churn Score",
-      "tool": "pydriller"
+      "block": "All Uses Coverage",
+      "metricCount": 10,
+      "primaryTool": "ESLint (eslint-scope)",
+      "primaryVersion": "7.2.2",
+      "alternativeTool": "knip",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "knip not available on Node 12 (engines.node excludes this family)"
+      ]
     },
     {
-      "testingType": "Development Process Analysis",
-      "technique": "Code Churn",
-      "classification": "Regression Testing Focus",
-      "metric": "Impact-Driven Verification",
-      "tool": "pydriller"
-    },
-    {
-      "testingType": "Development Process Analysis",
-      "technique": "Code Churn",
-      "classification": "Defect Prediction",
-      "metric": "Fault Probability Modeling",
-      "tool": "pydriller"
-    },
-    {
-      "testingType": "Development Process Analysis",
-      "technique": "Code Churn",
-      "classification": "Test Case Maintenance Identification",
-      "metric": "Validation Suite Updates",
-      "tool": "pydriller"
-    },
-    {
-      "testingType": "Development Process Analysis",
-      "technique": "Code Churn",
-      "classification": "Change Impact Analysis",
-      "metric": "Side Effect Mapping",
-      "tool": "pydriller"
+      "block": "Code Churn",
+      "metricCount": 5,
+      "primaryTool": "pydriller",
+      "primaryVersion": null,
+      "alternativeTool": "Git-Spark",
+      "alternativeVersion": null,
+      "compatNotes": [
+        "Git-Spark not available on Node 12 (engines.node excludes this family)"
+      ]
     }
   ],
-  "compat": {
-    "notes": []
-  },
   "status": "generated"
 }
