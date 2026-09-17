@@ -8,7 +8,7 @@
     "node": ">=20.20.2"
   },
   "scripts": {
-    "build": "parcel build packages/api/src/index.js --target node --dist-dir dist",
+    "build": "parcel build src/index.js --target node --dist-dir dist",
     "test": "mocha packages/shared/tests/**/*.test.js",
     "lint": "eslint .",
     "lint:oxlint": "oxlint .",
@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@dodona/dolos": "^2.9.3",
-    "@parcel/config-default": "^2.12.0",
     "@stryker-mutator/core": "^9.6.1",
     "@stryker-mutator/mocha-runner": "^9.6.1",
     "cognitive-complexity-ts": "^0.8.2",
@@ -38,12 +37,6 @@
     "nyc": "^18.0.0",
     "oxlint": "^1.83.0",
     "parcel": "^2.12.0"
-  },
-  "targets": {
-    "node": {
-      "context": "node",
-      "includeNodeModules": true
-    }
   },
   "packageManager": "yarn@4.5.3"
 }
